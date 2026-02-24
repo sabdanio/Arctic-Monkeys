@@ -1,0 +1,420 @@
+body {
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: rgb(22, 22, 22) !important;
+}
+
+.navbar {
+    height: 70px; /* задай фиксированную высоту */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 20px;
+    background-color: rgb(22, 22, 22);
+    position: relative; /* добавляем позиционирование */
+    z-index: 10;        /* выше hero */
+}
+
+.hero {
+    width: 100%;
+    min-height: calc(100svh - 70px); /* если navbar сверху */
+    background-image: url('https://www.bigissue.com/wp-content/uploads/2022/08/1528_AM_AM5952.jpg?w=1920');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* чтобы z-index сработал, если нужно */
+    z-index: 1;        
+    }
+
+
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background-color: rgba(0, 0, 0, 0.521); /* затемнение */
+    backdrop-filter: blur(1.4px);          /* размытие */
+    z-index: 1;
+}
+
+.bg {
+    width: 100%;
+    min-height: calc(100svh - 70px);
+    background-image: url('https://www.rollingstone.co.uk/wp-content/uploads/sites/2/2023/06/Arctic-Monkeys-pc-Zackery-Michael-436763_L2-B_08-300-dpi.jpg');
+    background-size: cover;
+    background-position: center;
+    position:relative;
+    overflow: hidden;
+}
+
+
+.bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    filter: blur(1.4px);
+    transform: scale(1.1); /* чтобы края не обрезались */
+    z-index: 0;
+}
+
+.bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.bg > * {
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+
+
+.logo{
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: font-size 0.15s ease-in-out 0.05s, color 0.15s ease-in-out 0.05s;
+}
+
+.menu a:hover {
+    text-decoration: none;
+    color: rgb(215, 245, 238);
+    font-size: 20px;
+}
+
+.logo a{
+    text-decoration: none;
+    color: white;
+}
+
+.logo a:hover{
+    text-decoration: none;
+    color: rgb(215, 245, 238);
+}
+
+.hero .wholehero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;;
+    
+
+}
+
+.headtxt {
+    color: white;
+    font: bold 48px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    padding-top: 40px
+    
+}
+
+.subtxt {
+    padding: 0 370px;
+    position: relative;
+    
+    color: white;
+}
+
+
+.bios {
+    margin: 40px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.neon {
+    width: 320px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #999999;
+    box-shadow: 0 0 10px #adadad, 0 0 30px #b5b6b6;
+    padding: 20px;
+    border-radius: 30px;
+    color: white;
+    justify-content: center; /* центр по горизонтали */
+    align-items: center;
+    transition: transform 0.15s ease-in-out 0.05s, border 0.15s ease-in-out 0.05s, box-shadow 0.15s ease-in-out 0.05s;
+}
+
+.neon:hover{
+    transform: scale(1.05);
+    border: 3px solid #999999;
+    box-shadow: 0 0 13px #adadad, 0 0 30px #b5b6b6;
+}
+
+.neon img.wrapper {
+    display: block;
+    margin: 15px auto;        /* центрирует img по горизонтали */
+    max-width: 100%;
+    max-height: 270px;
+    object-fit: contain;
+    border-radius: 12%;
+}
+
+.neon h1 {
+    margin-top: 4px;
+    text-align: center;
+    min-height: 60px;   /* одинаковая высота под заголовок */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.neon p {
+    text-align: center;
+    margin-top: auto;  /* прижимает текст вниз, если надо */
+}
+
+.footer {
+    color: white;
+    font: 18px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(22, 22, 22);
+    width: 100%;
+    height: 80px
+}
+
+.bgs {
+    width: 100%;
+    height: calc(100svh - 70px);
+    background-image: url("https://i8.amplience.net/i/naras/gettyimages-463002154.jpg.jpg");
+    background-size: cover;
+    background-position: center;
+    padding-top: 20px;
+    position: relative;
+
+}
+
+.bgs::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background-color: rgba(0, 0, 0, 0.7); /* затемнение */
+    backdrop-filter: blur(4px);          /* размытие */
+    z-index: 1;
+}
+
+.bgs > * {
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+.music-player {
+    margin: 120px auto 60;
+    width: 260px;
+    height: 600px;
+    padding: 25px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #0f0f0f, #1c1c1c);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+    text-align: center;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.track-title {
+    margin-bottom: 15px;
+    
+    opacity: 0.9;
+}
+.music-player p {
+    margin-top: auto;   /* 🔥 уедет вниз */
+    margin-bottom: 20px;
+    font: bold 12px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+#playBtn {
+    background: none;
+    border: 2px solid white;
+    margin-top: 30px;
+    color: white;
+    padding: 10px 40px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s ease;
+}
+
+#playBtn:hover {
+    background: white;
+    color: black;
+    transform: scale(1.05);
+}
+
+.songs {
+    margin: 20px 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.neons {
+    
+    width: 300px;
+    height: 430px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #999999;
+    box-shadow: 0 0 10px #adadad, 0 0 30px #b5b6b6;
+    padding: 20px;
+    border-radius: 30px;
+    color: white;
+    justify-content: center; /* центр по горизонтали */
+    align-items: center;
+    transition: transform 0.15s ease-in-out 0.05s, border 0.15s ease-in-out 0.05s, box-shadow 0.15s ease-in-out 0.05s;
+}
+
+.neons:hover{
+    transform: scale(1.05);
+    border: 3px solid #999999;
+    box-shadow: 0 0 13px #adadad, 0 0 30px #b5b6b6;
+}
+
+.neons img.wrapper {
+    display: block;
+    margin: 15px auto;        /* центрирует img по горизонтали */
+    max-width: 100%;
+    max-height: 270px;
+    object-fit: contain;
+    border-radius: 12%;
+}
+
+.neons h1 {
+    margin-top: 4px;
+    text-align: center;
+    min-height: 60px;   /* одинаковая высота под заголовок */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.neons p {
+    text-align: center;
+    margin-top: auto;  /* прижимает текст вниз, если надо */
+}
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.progress {
+    flex: 1;
+    cursor: pointer;
+}
+
+.backimage {
+    width: 100%;
+    height: calc(100svh - 70px);
+    background-image: url("https://logos-world.net/wp-content/uploads/2023/05/Arctic-Monkeys-Logo.png");
+    background-size: cover;
+    background-position: center;
+}
+
+
+.neons img.wrapper {
+    display: block;
+    margin: 15px auto;        /* центрирует img по горизонтали */
+    max-width: 100%;
+    max-height: 270px;
+    object-fit: contain;
+    border-radius: 12%;
+}
+
+
+@media (max-width: 768px) {
+        .bios{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .songs {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .neon{
+            margin-top: 20px;
+            width: 280px;
+            height: 600px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .neons{
+            margin-top: 20px;
+            width: 300px;
+            height: 430px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .navbar {
+            height: 110px;
+        }
+
+        .menu {
+            padding-top: 10px;
+        }
+    
+        .subtxt {
+            padding: 20px;
+            position: relative;
+        
+        color: white;
+        }
+        .hero {
+            height: 100svh; /* 100% высоты экрана телефона */
+        }
+
+        .footer {
+            
+            font-size: 16px;
+            height: 50px;
+        }
+    }
+
